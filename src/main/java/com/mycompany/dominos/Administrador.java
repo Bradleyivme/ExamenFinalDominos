@@ -1,5 +1,6 @@
 package com.mycompany.dominos;
 import java.util.ArrayList;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -10,6 +11,9 @@ public class Administrador extends javax.swing.JFrame {
     public ArrayList<Object[]>Progreso = new ArrayList<Object[]>();
     public ArrayList<Object>Barra = new ArrayList<Object>();
     public DefaultTableModel model = new DefaultTableModel();
+    public ArrayList<Object> PizzasG = new ArrayList<Object>();
+    public ArrayList<Object> PizzasJ = new ArrayList<Object>();
+    public ArrayList<Object> PizzasP = new ArrayList<Object>();
     
     public Administrador() {
         initComponents();
@@ -26,9 +30,7 @@ public class Administrador extends javax.swing.JFrame {
         for(Object Lista : Barra){
             model.addColumn(Lista);
         }
-        this.TablaPizzas.setModel(model);
-        
-
+        this.TablaPizzas.setModel(model); 
     }
     
     public void LimpiarTabla(){
@@ -357,14 +359,18 @@ public class Administrador extends javax.swing.JFrame {
         if(sucursal == "Guatemala"){
             Object[]x = new Object[]{txtPizza.getText().toString(),sucursal.toString(),txtPrecio.getText().toString(),txtDescrip.getText().toString()};
             Guatemala.add(x);
+            PizzasG.add(txtPizza.getText().toString());
             
         }else{
             if(sucursal == "Jalapa"){
                 Object[]y = new Object[]{txtPizza.getText().toString(),sucursal.toString(),txtPrecio.getText().toString(),txtDescrip.getText().toString()};
-                Jalapa.add(y);               
+                Jalapa.add(y);
+                PizzasJ.add(txtPizza.getText().toString());
+                
             }else{
                 Object[]z = new Object[]{txtPizza.getText().toString(),sucursal.toString(),txtPrecio.getText().toString(),txtDescrip.getText().toString()};
-                Progreso.add(z);                  
+                Progreso.add(z);
+                PizzasP.add(txtPizza.getText().toString());
             }
         }       
         JOptionPane.showMessageDialog(null, "Creación de pizza hecha correctamente.");

@@ -1,10 +1,13 @@
 package com.mycompany.dominos;
+import javax.swing.DefaultComboBoxModel;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 
 public class Pedidos extends javax.swing.JFrame {
     public static Inicio Iniciov = new Inicio();
     Administrador Parametro = new Administrador();
+    public DefaultTableModel model = new DefaultTableModel();
     
     public Pedidos() {
         initComponents();
@@ -13,6 +16,30 @@ public class Pedidos extends javax.swing.JFrame {
         JCBSucur.addItem("Jalapa");
         JCBSucur.addItem("Progreso");
     }
+
+    public void MostrarCombobox(){
+        String sucursal = JCBSucur.getSelectedItem().toString();
+        
+        if(sucursal == "Guatemala"){
+            JCBPizza.removeAllItems();
+
+            
+        }else{
+            if(sucursal == "Jalapa"){
+                JCBPizza.removeAllItems();
+
+            }else{
+                JCBPizza.removeAllItems();
+
+            }
+        }
+    }
+    
+    public void CrearCBG(){
+        
+    }
+    
+    
     
     public void limpiar(){
         txtCliente.setText("");
